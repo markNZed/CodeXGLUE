@@ -41,7 +41,8 @@ from transformers import (WEIGHTS_NAME, AdamW, get_linear_schedule_with_warmup,
                           GPT2Config, GPT2LMHeadModel, GPT2Tokenizer,
                           OpenAIGPTConfig, OpenAIGPTLMHeadModel, OpenAIGPTTokenizer,
                           RobertaConfig, RobertaForMaskedLM, RobertaTokenizer,
-                          DistilBertConfig, DistilBertForMaskedLM, DistilBertTokenizer)
+                          DistilBertConfig, DistilBertForMaskedLM, DistilBertTokenizer,
+                          GPTNeoXConfig, GPTNeoXForCausalLM, GPT2Tokenizer)
 from model import RNNModel
 
 # logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
@@ -50,6 +51,7 @@ from model import RNNModel
 logger = logging.getLogger(__name__)
 
 MODEL_CLASSES = {
+    'gpt2neox': (GPTNeoXConfig, GPTNeoXForCausalLM, GPT2Tokenizer),
     'gpt2': (GPT2Config, GPT2LMHeadModel, GPT2Tokenizer),
     'rnn': (GPT2Config, RNNModel, GPT2Tokenizer),
     'openai-gpt': (OpenAIGPTConfig, OpenAIGPTLMHeadModel, OpenAIGPTTokenizer),
